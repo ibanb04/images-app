@@ -3,7 +3,7 @@ import { StyleSheet, View, FlatList, ActivityIndicator, Text } from 'react-nativ
 import { useImageGallery } from '../../src/hooks/useImageGallery';
 import { ImageGridItem } from '../../src/components/ImageGridItem';
 import { ImageItem } from '../../src/types/image';
-
+import { useFavoritesStore } from '../../src/store/favoritesStore';
 const numColumns = 2;
 
 export default function HomeScreen() {
@@ -12,10 +12,12 @@ export default function HomeScreen() {
         fetchNextPage,
         hasNextPage,
         isFetchingNextPage,
-        isLoading,
+        isLoading: isLoadingImages,
         isError,
     } = useImageGallery();
 
+    const { favorites, toggleFavorite, } = useFavoritesStore();
+    const isFavorite = (imageId: string) => favorites.some((fav) => fav.id === imageId);
     const handleLoadMore = () => {
         if (hasNextPage && !isFetchingNextPage) {
             fetchNextPage();
@@ -23,13 +25,16 @@ export default function HomeScreen() {
     };
 
     const renderItem = ({ item }: { item: ImageItem }) => (
-        <ImageGridItem item={item} />
+        <ImageGridItem
+            item={item}
+            isFavorite={isFavorite(item.id)}
+            onToggleFavorite={toggleFavorite}
+        />
     );
 
-    // juntar todas las páginas en un solo array 
     const images = data?.pages?.reduce((total, page) => [...total, ...page], []) || [];
 
-    if (isLoading && !data) {
+    if ((isLoadingImages) && !images.length) {
         return <View style={styles.centered}><ActivityIndicator size="large" color="#0000ff" /></View>;
     }
 
@@ -51,6 +56,7 @@ export default function HomeScreen() {
                 ) : null
             }
             contentContainerStyle={styles.listContainer}
+            extraData={favorites}
         />
     );
 }

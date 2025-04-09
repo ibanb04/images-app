@@ -6,12 +6,12 @@ import { ImageItem } from '../types/image';
 type ImageGalleryData = InfiniteData<ImageItem[], number>;
 
 export const useImageGallery = () => {
-  
+
   return useInfiniteQuery<
     ImageItem[],          
     Error,                
     ImageGalleryData,     
-    string[],             
+    string[],
     number              
   >({
     queryKey: ['images'],
