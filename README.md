@@ -46,6 +46,7 @@ npx expo start
 
 ## Estructura del proyecto
 
+```
 images-app/
 ├── app/                    # Configuración principal y pantallas
 ├── src/                    # Código fuente principal
@@ -67,3 +68,4 @@ images-app/
 ├── tsconfig.json         # Configuración de TypeScript
 ├── app.json             # Configuración de la aplicación
 └── .gitignore           # Archivos ignorados por Git
+```
