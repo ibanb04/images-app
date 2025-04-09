@@ -1,24 +1,32 @@
-import { useInfiniteQuery, InfiniteData } from '@tanstack/react-query';
-import { fetchImages } from '../services/picsum';
-import { ImageItem } from '../types/image';
-
-
-type ImageGalleryData = InfiniteData<ImageItem[], number>;
+import { useInfiniteQuery } from '@tanstack/react-query';
+import { ImageItem } from '../types';
+import { picsumService } from '../services/api/picsum';
 
 export const useImageGallery = () => {
-
-  return useInfiniteQuery<
-    ImageItem[],          
-    Error,                
-    ImageGalleryData,     
-    string[],
-    number              
-  >({
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isLoading,
+    isError,
+  } = useInfiniteQuery({
     queryKey: ['images'],
-    queryFn: fetchImages,
+    queryFn: ({ pageParam = 1 }) => picsumService.getImages(pageParam),
     initialPageParam: 1,
-    getNextPageParam: (lastPage, _allPages, lastPageParam) => {
+    getNextPageParam: (lastPage: ImageItem[], allPages: ImageItem[][], lastPageParam: number) => {
       return lastPage.length === 10 ? lastPageParam + 1 : undefined;
     },
   });
+
+  const images = data?.pages.flatMap(page => page) ?? [];
+
+  return {
+    images,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isLoading,
+    isError,
+  };
 };

@@ -3,10 +3,10 @@ import { View, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { ImageItem } from '../types/image';
 import CachedImage from './CachedImage';
+import { NUM_COLUMNS } from '../utils/constants';
 
 const { width } = Dimensions.get('window');
-const numColumns = 2;
-const imageSize = width / numColumns;
+const imageSize = width / NUM_COLUMNS;
 
 interface Props {
   item: ImageItem;

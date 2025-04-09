@@ -21,7 +21,8 @@ export const downloadAndCacheImage = async (imageUrl: string) => {
       localPath
     );
 
-        const { uri } = await downloadResumable.downloadAsync();
+    const result = await downloadResumable.downloadAsync();
+    const uri = result?.uri || localPath;
 
     // Guardar la ruta en AsyncStorage
     await AsyncStorage.setItem(imageUrl, uri);
