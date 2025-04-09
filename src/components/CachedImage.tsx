@@ -3,7 +3,7 @@ import { View, Image, ActivityIndicator } from 'react-native';
 import { downloadAndCacheImage } from '../utils/downloadAndCacheImage';
 
 const CachedImage = ({ imageUrl, style }: { imageUrl: string, style: any }) => {
-    const [uri, setUri] = useState(null);
+    const [uri, setUri] = useState<string | null>(null);
 
     useEffect(() => {
         const load = async () => {

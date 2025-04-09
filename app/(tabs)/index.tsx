@@ -8,7 +8,7 @@ const numColumns = 2;
 
 export default function HomeScreen() {
     const {
-        data,
+        images,
         fetchNextPage,
         hasNextPage,
         isFetchingNextPage,
@@ -32,7 +32,7 @@ export default function HomeScreen() {
         />
     );
 
-    const images = data?.pages?.reduce((total, page) => [...total, ...page], []) || [];
+
 
     if ((isLoadingImages) && !images.length) {
         return <View style={styles.centered}><ActivityIndicator size="large" color="#0000ff" /></View>;
