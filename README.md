@@ -2,29 +2,43 @@
 # 📸 Galería de Imágenes con Favoritos y Caché
 ![image](https://github.com/user-attachments/assets/396e5fd6-aa8e-4ade-86a5-c3594c5d11ad)
 
-Aplicación desarrollada en React Native con Expo como parte de una prueba técnica. La app muestra una galería de imágenes obtenidas desde la API de [Picsum](https://picsum.photos/), permite marcar favoritas y mantiene esta información persistente. También implementa un sistema básico de caché de imágenes.
 
-## 🚀 Tecnologías
+Aplicación desarrollada en **React Native** con **Expo**, como parte de una prueba técnica. La app muestra una galería de imágenes desde la API de [Picsum](https://picsum.photos/), permite marcar imágenes como favoritas y mantiene esta información persistente. También se implementa un sistema básico de caché.
 
-- [React Native](https://reactnative.dev/)
-- [Expo](https://expo.dev/)
-- [React Navigation](https://reactnavigation.org/)
-- [AsyncStorage](https://react-native-async-storage.github.io/async-storage/) (para persistencia de favoritos)
-- Fetch API (para obtener imágenes)
-- Scroll infinito / paginación
+## 🚀 Tecnologías Relevantes
+
+- **React Native** – Core del desarrollo móvil.
+- **Expo** – Facilitador del entorno de desarrollo.
+- **expo-router** – Navegación basada en archivos.
+- **AsyncStorage** – Persistencia local para favoritos.
+- **Zustand** – Manejo de estado global simple y eficiente.
+- **TanStack React Query** – Gestión de datos remotos y caching e Scroll Infinito.
+- **Axios** – Cliente HTTP para llamadas a la API.
+- **react-native-fs** – Utilidades para gestión de archivos, usada para manejo de caché de imágenes.
 
 ## 🧩 Funcionalidades
 
-- Mostrar galería de imágenes desde API de Picsum
-- Scroll infinito para cargar más imágenes
-- Marcar imágenes como favoritas
-- Guardar favoritos entre sesiones usando AsyncStorage
-- Caché básica de imágenes (reutilización del componente `Image` sin librerías externas)
+- Galería de imágenes con scroll infinito usando TanStack React Query.
+- Carga de imágenes desde la API de Picsum.
+- Marcado de imágenes como favoritas.
+- Persistencia de favoritos con AsyncStorage.
+- Sistema de caché utilizando `react-native-fs` (sin `react-native-fast-image`).
+- Navegación con `expo-router`.
 
 ## 📦 Instalación
 
-1. Clona el repositorio:
+1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/nombre-repo.git
-cd nombre-repo
+git clone [https://github.com/tu-usuario/nombre-repo.git](https://github.com/ibanb04/images-app.git)
+cd images-app
+```
+2. Instalar dependencias:
+```bash
+npm install
+```
+
+3. Iniciar el proyecto::
+```bash
+npx expo start
+```
