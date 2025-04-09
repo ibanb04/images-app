@@ -4,8 +4,7 @@ import { useImageGallery } from '../../src/hooks/useImageGallery';
 import { ImageGridItem } from '../../src/components/ImageGridItem';
 import { ImageItem } from '../../src/types/image';
 import { useFavoritesStore } from '../../src/store/favoritesStore';
-const numColumns = 2;
-
+import { NUM_COLUMNS } from '../../src/utils/constants';
 export default function HomeScreen() {
     const {
         images,
@@ -47,7 +46,7 @@ export default function HomeScreen() {
             data={images}
             renderItem={renderItem}
             keyExtractor={(item) => item.id}
-            numColumns={numColumns}
+            numColumns={NUM_COLUMNS}
             onEndReached={handleLoadMore}
             onEndReachedThreshold={0.5}
             ListFooterComponent={() =>

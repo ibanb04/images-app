@@ -3,8 +3,7 @@ import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { ImageGridItem } from '../../src/components/ImageGridItem';
 import { ImageItem } from '../../src/types/image';
 import { useFavoritesStore } from '../../src/store/favoritesStore';
-
-const numColumns = 2;
+import { NUM_COLUMNS } from '../../src/utils/constants';
 
 export default function FavoritesScreen() {
     const { favorites, toggleFavorite } = useFavoritesStore();
@@ -25,7 +24,7 @@ export default function FavoritesScreen() {
             data={favorites}
             renderItem={renderItem}
             keyExtractor={(item) => item.id}
-            numColumns={numColumns}
+            numColumns={NUM_COLUMNS}
             contentContainerStyle={styles.listContainer}
             extraData={favorites}
         />

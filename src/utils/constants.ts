@@ -1,7 +1,7 @@
 import { Dimensions } from 'react-native';
 
 export const SCREEN_WIDTH = Dimensions.get('window').width;
-export const NUM_COLUMNS = 2;
+export const NUM_COLUMNS = 3;
 export const IMAGE_SIZE = SCREEN_WIDTH / NUM_COLUMNS;
 
 export const CACHE_DIRECTORY = 'images/';
