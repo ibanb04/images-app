@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Image, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { ImageItem } from '../types/image';
+import CachedImage from './CachedImage';
 
 const { width } = Dimensions.get('window');
 const numColumns = 2;
@@ -16,10 +17,9 @@ interface Props {
 export const ImageGridItem: React.FC<Props> = ({ item, isFavorite, onToggleFavorite }) => {
   return (
     <View style={styles.imageContainer}>
-      <Image
-        source={{ uri: item.url }}
+      <CachedImage
+        imageUrl={item.url}
         style={styles.image}
-        resizeMode="cover"
       />
       <TouchableOpacity
         style={styles.favoriteButton}
