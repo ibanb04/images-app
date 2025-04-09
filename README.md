@@ -1,5 +1,6 @@
 # images-app
 # 📸 Galería de Imágenes con Favoritos y Caché
+![image](https://github.com/user-attachments/assets/396e5fd6-aa8e-4ade-86a5-c3594c5d11ad)
 
 Aplicación desarrollada en React Native con Expo como parte de una prueba técnica. La app muestra una galería de imágenes obtenidas desde la API de [Picsum](https://picsum.photos/), permite marcar favoritas y mantiene esta información persistente. También implementa un sistema básico de caché de imágenes.
 
