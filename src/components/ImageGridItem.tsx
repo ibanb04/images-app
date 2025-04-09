@@ -17,7 +17,6 @@ export const ImageGridItem: React.FC<Props> = ({ item }) => {
         source={{ uri: item.url }}
         style={styles.image}
         resizeMode="cover"
-        // Podrías añadir un placeholder o indicador de carga por imagen aquí
       />
     </View>
   );
