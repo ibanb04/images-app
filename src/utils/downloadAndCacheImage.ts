@@ -14,7 +14,7 @@ export const downloadAndCacheImage = async (imageUrl: string) => {
 
     // Si no existe, descargarla
     const fileName = imageUrl.split('/').pop();
-    const localPath = `${FileSystem.cacheDirectory}${fileName}`;
+    const localPath = `${FileSystem.cacheDirectory}${fileName}.jpg`;
 
     const downloadResumable = FileSystem.createDownloadResumable(
       imageUrl,
