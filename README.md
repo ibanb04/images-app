@@ -42,3 +42,28 @@ npm install
 ```bash
 npx expo start
 ```
+
+
+## Estructura del proyecto
+
+images-app/
+├── app/                    # Configuración principal y pantallas
+├── src/                    # Código fuente principal
+│   ├── components/         # Componentes reutilizables
+│   ├── services/          # Servicios y APIs
+│   ├── utils/             # Funciones utilitarias
+│   ├── hooks/             # Custom hooks de React
+│   ├── theme/             # Temas y estilos
+│   ├── types/             # Definiciones TypeScript
+│   └── store/             # Estado global
+├── assets/                # Recursos estáticos
+│   ├── images/
+│   ├── fonts/
+│   └── icons/
+├── .expo/                 # Configuración de Expo
+├── .vscode/              # Configuración de VS Code
+├── node_modules/         # Dependencias
+├── package.json          # Dependencias y scripts
+├── tsconfig.json         # Configuración de TypeScript
+├── app.json             # Configuración de la aplicación
+└── .gitignore           # Archivos ignorados por Git
